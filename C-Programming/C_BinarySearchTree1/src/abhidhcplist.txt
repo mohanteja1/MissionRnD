@@ -1,0 +1,26 @@
+ID	Client Name      	                     MAC Address	 Assigned IP   Lease Time
+1	Honor_6X	                          C4-86-E9-B0-FE-90	192.168.0.119	01:57:26
+2	android-98e8ce686584587	              3C-97-10-AC-A1-B4	192.168.0.127	01:54:43
+3	Redmi4-RAJIV	                      50-8F-4C-AB-E3-C3	192.168.0.109	01:52:00
+4	LAPTOP-3GSN8TBV	                      54-AB-3A-DF-FC-F2	192.168.0.100	01:51:57
+5	android-18ae6ff00ba33e95	          2C-56-DC-02-AA-DD	192.168.0.118	01:51:33
+6	DESKTOP-1SJHE93	                      60-6C-66-87-DF-11	192.168.0.105	01:42:51
+7	RedmiNote4-Redmi	                  50-8F-4C-A6-8F-8D	192.168.0.102	01:35:35
+8	LAPTOP-9MLR95O5	                      00-DB-DF-3A-D1-44	192.168.0.126	01:31:51
+9	RedmiNote4-rajeev	                  F4-F5-DB-9C-3C-5B	192.168.0.124	01:30:20
+10	android-ba7a1d6b1f7ecb26	          84-11-9E-BC-5A-F3	192.168.0.121	01:28:44
+11	RedmiNote3-RajPaul	                  38-A4-ED-C2-E4-F3	192.168.0.115	01:28:35
+12	Windows-Phone	                      48-50-73-3C-4F-2C	192.168.0.125	01:19:36
+13	android-edaebe63a11ec23e	          88-79-7E-F8-CD-89	192.168.0.111	01:16:36
+14	android-33ee47279342114e	          E0-2C-B2-F1-A5-B1	192.168.0.110	01:14:39
+15	Redmi4-Redmi	                      50-8F-4C-93-BF-35	192.168.0.123	01:13:26
+16	android-6570be51e9ac9dcf	          74-04-2B-BB-9D-E6	192.168.0.120	01:11:50
+17	android-8ad058f8ab9581da	          98-DD-EA-58-A2-0B	192.168.0.122	01:11:20
+18	android-52e866b3e1317e89	          E4-90-7E-88-CE-7D	192.168.0.116	01:10:34
+19	RedmiNote4-Redmi	                  C4-0B-CB-54-FC-65	192.168.0.114	01:10:28
+20	android-b2dc937f570e97eb	          00-90-4C-09-97-B4	192.168.0.117	00:43:20
+21	Redmi4-Redmi	                      E4-46-DA-94-3A-3D	192.168.0.113	00:42:35
+22	android-1fc4d70e78cf3edd	          84-C7-EA-F6-10-B6	192.168.0.112	00:39:06
+23	NAVEEN	                              2C-6E-85-F0-A2-44 192.168.0.103	00:07:49
+24	android-cc3f63051725c752	          F8-32-E4-CB-C2-D1	192.168.0.108	00:06:58
+25	2014818-sudheer_kuma	              10-2A-B3-9D-3A-47	192.168.0.104	00:03:16

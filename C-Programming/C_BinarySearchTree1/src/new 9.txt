@@ -1,0 +1,4 @@
+/*printf("pos=%d\n", pos);
+	printf("position=%d\n---------------\n", *position);*/
+
+	//head = head->next;

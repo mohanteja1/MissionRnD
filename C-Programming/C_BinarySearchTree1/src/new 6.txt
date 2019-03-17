@@ -1,0 +1,228 @@
+/*
+
+	Given a matrix nxn and a starting point (p,q), 
+	Output all the points in the matrix which are identical to the starting point in the fashion similar to magic tool in Adobe photoshop.
+	Eg:
+	(p,q) : (0,3)
+	1 2 3 3
+	3 2 3 3
+	5 3 3 3
+	4 5 1 4
+	o/p : [ (0,2) (0,3) (1,2) (1,3) (2,2) (2,3) (2,1) ]
+
+	Use 2 structures provided to solve the problem.
+	
+	struct point -> contains x, y corresponding to point on matrix.
+	struct result -> contains 3 fields
+						1. selected -> contains all the final points after the selecting process.
+						2. size -> number of the selected points.
+						3. visited -> utility variable to note the visited points on matrix during recursion.
+	
+	In error cases return a emply structures
+		size = 0;
+		selected = {};
+		visited = {};
+
+NOTE : Donot use any Global Variables
+*/
+
+#include <malloc.h>
+#include<stdio.h>
+#include <string.h>
+#include <iostream>
+struct Point {
+	int x;
+	int y;
+};
+
+
+struct result {
+	Point* selected;
+	bool *visited;
+	int size;
+};
+
+void printBool(bool *matrix, int m, int n)
+{
+	printf("\n%d,%d,%d\n",m,n,matrix);
+
+	for (int i = 0; i < m; i++)
+	{
+		printf("\n");
+
+		for (int j = 0; j < n; j++)
+			printf(matrix[i*(n) + j] ? "true\t" : "false\t");
+	}
+
+	printf("\n");
+}
+
+void printPixel(char *pixels, int m, int n)
+{
+	printf("\n");
+
+	for (int i = 0; i < m; i++)
+	{
+		printf("\n");
+		for (int j = 0; j < n; j++)
+			printf("%c\t", pixels[i*(n) + j]);
+	}
+	printf("\n");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+int ispointValid(int x, int y, int m, int n, struct Point pivot, char *pixel,result res)
+{
+	
+	if (x >= m || x<0 || y>=n || y < 0 || pixel[x*(n) + y] != pixel[pivot.x*(n) + pivot.y] || res.visited[x*(n) + y] != false)
+		return 0;
+	else
+        return 1;
+}
+
+void select(char *pixels, int m, int n, struct Point pivot, result &res, struct Point current) {
+	
+	
+	res.visited[current.x*n+current.y] = 1;
+	
+	  res.size += 1;
+	
+
+
+
+	    if (ispointValid(current.x, current.y - 1, m, n, pivot, pixels, res))
+	    {
+			current.y += -1;
+			res.visited[current.x*(n+1) + current.y] = 1;
+		
+		select(pixels, m, n, pivot, res, current);
+		current.y += 1;
+	    }	
+	 
+	    if (ispointValid(current.x + 1, current.y, m, n, pivot, pixels, res))
+		{
+
+			current.x +=1;
+		//	res.visited[current.x*n + current.y] = 1;
+			select(pixels, m, n, pivot, res, current);
+			current.x += -1;
+		}
+		if (ispointValid(current.x - 1, current.y, m, n, pivot, pixels, res))
+		{
+			current.x += -1;
+			//res.visited[current.x*n + current.y] = 1;
+			select(pixels, m, n, pivot, res, current);
+			current.x += 1;
+		}
+		if (ispointValid(current.x, current.y + 1, m, n, pivot, pixels, res))
+		{
+			current.y += 1;
+			//res.visited[current.x*n + current.y] = 1;
+			select(pixels, m, n, pivot, res, current);
+			current.y += -1;
+		}
+
+}
+
+
+struct result select_wrapper(char* pixels, int m, int n, struct Point pivot) {
+
+	if (pivot.x<0 || pivot.y<0 || pivot.x>m || pivot.y>n||pixels==NULL)
+	{ 
+		result invalid;
+		invalid.size = 0;
+		invalid.selected = {};
+		invalid.visited = {};
+		return invalid;
+	}
+
+	m = m + 1;
+	n = n + 1;
+
+	//printPixel(pixels, m, n);
+
+	
+
+
+    result res;
+	res.size = 0;
+
+
+
+	static bool **val = (bool**)calloc(m ,sizeof(bool*));
+	for (int i = 0; i < m; i++){
+		val[i] = (bool*)calloc(n, sizeof(bool));
+		memset(val[i], 0, n*sizeof(val[i]));
+	}
+	
+	 
+	
+  // register	bool val[3][5] = { false };
+
+	res.visited = &val[0][0];
+
+	//printBool(res.visited, m, n);
+
+	//int **arr = (int**)calloc(m, sizeof(int));
+	//for (int i = 0; i < m; i++){
+	//	arr[i] = (int*)calloc(n, sizeof(int));
+	//}
+
+
+	int j=0;
+	/*for (int i = 0; i <m ; i++)
+	{
+		printf("%d,%d\n",i,j);
+		for (j = 0; j < n; j++)
+		{
+			printf("%d\t", arr[i][j]);
+		}
+	}*/
+
+
+
+	
+
+	select(pixels, m, n, pivot, res, pivot);
+
+
+	//printf("\nsize == %d", res.size);
+
+	//printBool(res.visited, m, n);
+
+
+
+
+
+
+
+
+	res.selected = (Point*)malloc(sizeof(Point)*res.size);
+	int k = 0;
+	for (int i = 0; i < m; i++)
+		for (int j = 0; j < n; j++)
+		{
+			if (res.visited[i*(n)+j]){
+				printf("%d,%d\n", i, j);
+				res.selected[k].x = i;
+				res.selected[k++].y = j;
+			}
+		}
+
+
+	
+	return res;
+}
